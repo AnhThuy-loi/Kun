@@ -236,13 +236,13 @@ body {
 
 /* ẢNH 1 */
 .slide-1 {
-  background-image: url("ảnh/s1.png");
+  background-image: url("s1.png");
   animation: slide1 15s infinite;
 }
 
 /* ẢNH 2 */
 .slide-2 {
-  background-image: url("ảnh/s2.jpg");
+  background-image: url("s2.jpg");
   animation: slide2 15s infinite;
 }
 

@@ -133,15 +133,10 @@ const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 
 menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('show');
-  document.body.style.overflow = menu.classList.contains('show')
-    ? 'hidden'
-    : '';
-});
+  const isOpen = menu.classList.toggle('show');
 
-document.querySelectorAll('.menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    menu.classList.remove('show');
-    document.body.style.overflow = '';
-  });
+  menuToggle.classList.toggle('active');
+  menuToggle.textContent = isOpen ? '✕' : '☰';
+
+  document.body.style.overflow = isOpen ? 'hidden' : '';
 });

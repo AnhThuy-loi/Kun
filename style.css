@@ -28,36 +28,61 @@ body {
 /* Hiển thị menu dạng cột trên thiết bị di động */
 @media (max-width: 768px) {
   .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
     background: #020617;
 
+    display: flex;              /* BẮT BUỘC */
     flex-direction: column;
+    padding: 80px 24px;
+    gap: 20px;
     align-items: center;
 
+    transition: right 0.3s ease;
+    z-index: 1000;
     display: none;
     padding: 20px 0;
   }
 
   .menu.show {
+    right: 0;                   /* ← QUAN TRỌNG */
     display: flex;
   }
+}
 
+.menu-toggle {
+  z-index: 1101;
+  background: none;
+  border: none;
+  justify-self: end;
+}
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+}
   .menu a {
     padding: 14px 0;
     font-size: 18px;
   }
 
+@media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
+}
 
   .header-right {
     display: none;
   }
-}
+
 
 /* ===== MOBILE AUTH BUTTONS ===== */
 .mobile-auth {
@@ -87,7 +112,7 @@ body {
   flex-wrap: wrap;
 }
 
-  
+
 
 .menu a {
   color: #ffffff;
@@ -291,6 +316,7 @@ body {
 .slide {
   position: absolute;
   inset: 0;
+  background-size: cover;
   background-size: cover; /* vẫn giữ cover cho desktop */
   background-position: center;
   background-repeat: no-repeat;
@@ -305,6 +331,9 @@ body {
   }
 
   .slide {
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
     background-size: contain; /* toàn bộ ảnh hiện ra, không bị crop */
     background-position: center top; /* ưu tiên hiển thị phần trung tâm / trên ảnh */
   }
@@ -335,6 +364,19 @@ body {
 }
 
 
+@media (max-width: 768px) {
+  .hero {
+    height: 45vh;
+  }
+
+  .hero-text h1[data-key="club"] {
+    font-size: 32px;
+  }
+
+  .hero-text .slogan-vn {
+    font-size: 18px;
+  }
+}
 
 @keyframes slide1 {
   0%   { opacity: 1; }
@@ -445,6 +487,22 @@ body {
   height: clamp(60px, 10vw, 120px);
   width: auto;
 }
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .header-actions,
+  .header-right {
+    display: none;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+}
+
 
 
 /* ===== SECTIONS ===== */
@@ -564,6 +622,7 @@ body {
 .intro-image-slider {
   position: relative;
   width: 100%;
+  height: clamp(240px, 45vw, 500px);
   height: 500px;
   border-radius: 20px;
   overflow: hidden;
@@ -578,11 +637,20 @@ body {
   opacity: 0;
   animation: introSlide 12s infinite;
 }
+@media (max-width: 768px) {
+  .intro-image-slider img {
+    object-fit: contain;
+    object-position: center top;
+    background: #000;
+  }
+}
+
 
 /* delay từng ảnh */
 .intro-image-slider img:nth-child(1) { animation-delay: 0s; }
 .intro-image-slider img:nth-child(2) { animation-delay: 4s; }
 .intro-image-slider img:nth-child(3) { animation-delay: 8s; }
+
 
 @keyframes introSlide {
   0% { opacity: 0; }
@@ -591,6 +659,18 @@ body {
   40% { opacity: 0; }
   100% { opacity: 0; }
 }
+
+@media (max-width: 768px) {
+  .intro-container {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-image-slider {
+    margin-top: 30px;
+  }
+}
+
+
 
 
 /* ===== FOOTER ===== */

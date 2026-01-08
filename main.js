@@ -129,11 +129,19 @@ function performSearch() {
         alert('Không có kết quả tìm kiếm!');
     }
 }
-
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 
 menuToggle.addEventListener('click', () => {
   menu.classList.toggle('show');
+  document.body.style.overflow = menu.classList.contains('show')
+    ? 'hidden'
+    : '';
 });
 
+document.querySelectorAll('.menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    menu.classList.remove('show');
+    document.body.style.overflow = '';
+  });
+});

@@ -129,10 +129,38 @@ function performSearch() {
         alert('Không có kết quả tìm kiếm!');
     }
 }
+// Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 
 menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('show'); // mở / đóng menu
+  menu.classList.toggle('show');
+});
+
+document.querySelectorAll('.menu a, .mobile-extra button').forEach(el => {
+  el.addEventListener('click', () => {
+    menu.classList.remove('show');
+  });
+});
+
+const langSwitchMobile = document.getElementById("lang-switch-mobile");
+
+// đồng bộ 2 nút VN/EN
+langSwitchMobile.checked = langSwitch.checked;
+
+langSwitchMobile.addEventListener("change", () => {
+  const lang = langSwitchMobile.checked ? "en" : "vn";
+  setLanguage(lang);
+  langSwitch.checked = langSwitchMobile.checked;
+});
+
+langSwitch.addEventListener("change", () => {
+  langSwitchMobile.checked = langSwitch.checked;
+});
+// Đóng menu khi chọn mục
+document.querySelectorAll('.menu a, .mobile-extra button').forEach(el => {
+  el.addEventListener('click', () => {
+    menu.classList.remove('show');
+  });
 });
 

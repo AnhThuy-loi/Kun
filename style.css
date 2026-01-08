@@ -31,8 +31,8 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100vh;
+    width: 70%;
+    height: 320vh;
 
     background: #020617;
     flex-direction: column;
@@ -51,31 +51,36 @@ body {
 }
 
 
+/* ===== MENU TOGGLE ===== */
 .menu-toggle {
-  z-index: 1101;
-  background: none;
-  border: none;
-  justify-self: end;
-}
-.menu-toggle {
-  display: none;
   font-size: 32px;
   cursor: pointer;
-}
-  .menu a {
-    padding: 14px 0;
-    font-size: 18px;
-  }
+  color: #000;
+  background: none;
+  border: none;
 
+  justify-self: end;
+  z-index: 1101;
+
+  display: none; /* mặc định ẩn (desktop) */
+  transition: color 0.3s ease;
+}
+
+/* HIỆN TRÊN MOBILE */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 }
 
-  .header-right {
-    display: none;
-  }
+/* KHI MENU MỞ */
+.menu-toggle.active {
+  color: #fff;        /* ✕ màu trắng */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
 
 
 /* ===== MOBILE AUTH BUTTONS ===== */

@@ -129,12 +129,11 @@ function performSearch() {
         alert('Không có kết quả tìm kiếm!');
     }
 }
+
+// Mobile menu toggle
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
 
 toggle.addEventListener('click', () => {
-  menu.classList.toggle('show');
+  menu.classList.toggle('open');
 });
-
-
-

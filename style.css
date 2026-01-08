@@ -31,29 +31,22 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 80%;
-    height: 100vh;
-    position: absolute;
-    top: 100%;
-    left: 0;
     width: 100%;
-    background: #020617;
+    height: 100vh;
 
-    display: flex;              /* BẮT BUỘC */
+    background: #020617;
+    display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 80px 24px;
     gap: 20px;
-    align-items: center;
 
     transition: right 0.3s ease;
     z-index: 1000;
-    display: none;
-    padding: 20px 0;
   }
 
   .menu.show {
-    right: 0;                   /* ← QUAN TRỌNG */
-    display: flex;
+    right: 0;
   }
 }
 

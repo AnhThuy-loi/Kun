@@ -25,68 +25,65 @@ body {
   font-size: 32px;
   cursor: pointer;
 }
-/* Hiển thị menu dạng cột trên thiết bị di động */
+/* MENU MOBILE */
 @media (max-width: 768px) {
   .menu {
     position: fixed;
     top: 0;
     right: 0;
-
-    width: 100%;
-    max-width: 320px;
+    width: 100%;           /* nửa màn hình, muốn full thì 100% */
     height: 100vh;
-
     background: #020617;
 
-    display: flex;                /* 🔥 BẮT BUỘC */
+    display: flex;
     flex-direction: column;
-    align-items: flex-start;      /* 🔥 chữ canh trái */
+    align-items: center;
     justify-content: flex-start;
 
-    padding: 100px 24px;
-    gap: 20px;
+    padding-top: 120px;
+    gap: 24px;
 
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 1000;
   }
 
+  /* Khi menu mở */
   .menu.show {
     transform: translateX(0);
   }
 
+  /* Menu link */
   .menu a {
     color: #fff;
     font-size: 18px;
-    font-weight: 600;
-    width: 100%;
+    text-decoration: none;
+    margin: 10px 0;
   }
 }
-
-/* ===== MENU TOGGLE ===== */
+//Thanh 3 
 .menu-toggle {
-  font-size: 32px;
-  cursor: pointer;
-  color: #000;
+  display: block;
   background: none;
   border: none;
-
-  display: none; /* ẩn desktop */
+  cursor: pointer;
   z-index: 1101;
+  position: relative;
+  width: 32px;
+  height: 24px;
 }
 
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
+.menu-toggle span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #fff;  /* màu trắng */
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
 }
 
-.menu-toggle.active {
-  color: #fff;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
+
 
 
 

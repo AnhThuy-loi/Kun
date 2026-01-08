@@ -130,10 +130,13 @@ function performSearch() {
     }
 }
 
-// Mobile menu toggle
-const toggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".menu");
 
-toggle.addEventListener('click', () => {
-  menu.classList.toggle('open');
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("show");
+    });
+  }
 });

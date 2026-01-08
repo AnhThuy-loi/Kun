@@ -20,33 +20,47 @@ body {
   background: #ffffff;
 }
 /* ===== RESPONSIVE MENU ===== */
+@media (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: #020617;
+
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 80px 24px;
+    gap: 20px;
+
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .menu.show {
+    right: 0;
+  }
+}
+.menu-toggle {
+  z-index: 1101;
+  background: none;
+  border: none;
+  justify-self: end;
+}
 .menu-toggle {
   display: none;
   font-size: 32px;
   cursor: pointer;
 }
+
 @media (max-width: 768px) {
-  .menu {
-    display: none;
-    flex-direction: column;
-    background: #020617;
-    padding: 20px 0;
-  }
-
-  .menu.show {
-    display: flex;
-  }
-
   .menu-toggle {
     display: block;
   }
-
-  .menu a {
-    padding: 12px 0;
-    font-size: 18px;
-  }
-  
 }
+
+
 /* ===== MOBILE AUTH BUTTONS ===== */
 .mobile-auth {
   display: none;
@@ -426,7 +440,8 @@ body {
 }
 
 @media (max-width: 768px) {
-  .header-actions {
+  .header-actions,
+  .header-right {
     display: none;
   }
 

@@ -130,16 +130,10 @@ function performSearch() {
     }
 }
 
-const toggle = document.querySelector(".menu-toggle");
-const menu = document.querySelector(".menu");
-const overlay = document.querySelector(".menu-overlay");
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
 
-toggle.addEventListener("click", () => {
-  menu.classList.toggle("show");
-  overlay.classList.toggle("show");
+menuToggle.addEventListener('click', () => {
+  menu.classList.toggle('show');
 });
 
-overlay.addEventListener("click", () => {
-  menu.classList.remove("show");
-  overlay.classList.remove("show");
-});

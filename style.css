@@ -59,23 +59,18 @@ body {
   background: none;
   border: none;
 
-  justify-self: end;
+  display: none; /* ẩn desktop */
   z-index: 1101;
-
-  display: none; /* mặc định ẩn (desktop) */
-  transition: color 0.3s ease;
 }
 
-/* HIỆN TRÊN MOBILE */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 }
 
-/* KHI MENU MỞ */
 .menu-toggle.active {
-  color: #fff;        /* ✕ màu trắng */
+  color: #fff;
   position: fixed;
   top: 20px;
   right: 20px;

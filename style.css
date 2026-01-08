@@ -7,8 +7,8 @@
 }
 
 body {
-  background: #020617;
-  color: #ffffff;
+  background: #ffffff;
+  color: #000000;
 }
 
 /* ===== HEADER ===== */
@@ -25,10 +25,13 @@ body {
 .menu {
   display: flex;
   justify-content: center;
-  gap: 100px; /* Thêm khoảng cách hợp lý giữa các mục */
+  gap: clamp(24px, 8vw, 100px); /* Thêm khoảng cách hợp lý giữa các mục */
   padding: 10px 0;
   background-color: #020617;
+  flex-wrap: wrap;
 }
+
+  
 
 .menu a {
   color: #ffffff;
@@ -65,9 +68,7 @@ body {
   border: 2px solid #ff3d9e;  /* Màu viền thay đổi để đồng bộ với màu nút tìm kiếm */
   border-radius: 30px;  /* Bo tròn viền thanh tìm kiếm */
   overflow: hidden;
-  width: 100%;
-  max-width: 600px;  /* Tăng kích thước tối đa của thanh tìm kiếm */
-  min-width: 320px;  /* Đảm bảo thanh tìm kiếm không quá nhỏ */
+  width: min(600px, 100%);
   transition: border-color 0.3s ease; /* Thêm hiệu ứng khi focus */
   height: 40px;  /* Điều chỉnh chiều cao của container */
 }
@@ -92,18 +93,23 @@ body {
 /* ===== SEARCH BUTTON ===== */
 .search-btn {
   background-color: #ff3d9e;
-  color: #fff;
+  color: #ffffff;
   border: none;
-  border-radius: 50%;  /* Giữ cho nút có hình tròn */
+  border-radius: 20px;   /* bo góc nhẹ */
   cursor: pointer;
-  height: 100px;  /* Chiều cao nút hơi nhỏ hơn một chút để vừa với thanh tìm kiếm */
-  width: 100px;   /* Chiều rộng nút vừa đủ để giữ hình tròn */
+
+  height: 36px;
+  padding: 0 18px;       /* cho chữ thở */
+  font-size: 14px;
+  font-weight: 600;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Thêm hiệu ứng chuyển màu và hiệu ứng nhấn */
-  margin-left: 5px; /* Dịch sát viền bên trái */
+  justify-content: center;
+
+  white-space: nowrap;   /* không xuống dòng */
 }
+
 
 /* Hiệu ứng hover cho nút tìm kiếm */
 .search-btn:hover {
@@ -309,8 +315,7 @@ body {
 
 /* DÒNG TO NHẤT: TÊN CLB */
 .hero-text h1[data-key="club"] {
-  font-size: 72px;
-  font-weight: 800;
+  font-size: clamp(40px, 8vw, 72px);
   text-transform: uppercase;
   letter-spacing: 4px;
   margin-bottom: 24px;
@@ -373,7 +378,8 @@ body {
 }
 
 .feature, .roadmap-card, .news-item {
-  background: #0f172a;
+  background: #ffffff;
+  color: #000000;
   padding: 24px;
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -386,6 +392,127 @@ body {
   transform: translateY(-6px);
   border-color: #ff2d95;
 }
+
+
+/* ===== INTRO LEFT / RIGHT ===== */
+.intro-section {
+  padding: 80px 50px;
+}
+
+.intro-container {
+  display: grid;
+  grid-template-columns: 0.7fr 1.1fr;
+  gap: 50px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* BÊN TRÁI */
+.intro-left h2 {
+  color: #000000;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.intro-text {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+  color: #000000;
+}
+
+.intro-text strong {
+  color: #ff2d95;
+}
+
+.intro-list {
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cột */
+  gap: 20px;
+}
+
+/* MỖI Ô */
+.intro-item {
+  background: #ffffff;
+  border: 2px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px 18px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  transition: all 0.3s ease;
+}
+
+/* ICON */
+.intro-item .icon {
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+/* CHỮ */
+.intro-item p {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 1.4;
+}
+
+/* HOVER */
+.intro-item:hover {
+  transform: translateY(-6px);
+  border-color: #ff2d95;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+
+
+/* BÊN PHẢI – SLIDER */
+.intro-right {
+  position: relative;
+}
+
+.intro-image-slider {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.intro-image-slider img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: introSlide 12s infinite;
+}
+
+/* delay từng ảnh */
+.intro-image-slider img:nth-child(1) { animation-delay: 0s; }
+.intro-image-slider img:nth-child(2) { animation-delay: 4s; }
+.intro-image-slider img:nth-child(3) { animation-delay: 8s; }
+
+@keyframes introSlide {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  30% { opacity: 1; }
+  40% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+
+
+
 
 /* ===== FOOTER ===== */
 .footer {

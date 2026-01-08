@@ -135,8 +135,12 @@ const menu = document.querySelector('.menu');
 menuToggle.addEventListener('click', () => {
   const isOpen = menu.classList.toggle('show');
 
-  menuToggle.classList.toggle('active');
+  // ĐỔI ICON
   menuToggle.textContent = isOpen ? '✕' : '☰';
 
+  // đổi màu + vị trí
+  menuToggle.classList.toggle('active', isOpen);
+
+  // khoá scroll
   document.body.style.overflow = isOpen ? 'hidden' : '';
 });

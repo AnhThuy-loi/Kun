@@ -30,15 +30,21 @@ body {
   .menu {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 70%;
-    height: 320vh;
+    right: 0;
+
+    width: 100%;
+    max-width: 320px;
+    height: 100vh;
 
     background: #020617;
+
+    display: flex;                /* 🔥 BẮT BUỘC */
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
+    align-items: flex-start;      /* 🔥 chữ canh trái */
+    justify-content: flex-start;
+
+    padding: 100px 24px;
+    gap: 20px;
 
     transform: translateX(100%);
     transition: transform 0.3s ease;
@@ -48,8 +54,14 @@ body {
   .menu.show {
     transform: translateX(0);
   }
-}
 
+  .menu a {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+  }
+}
 
 /* ===== MENU TOGGLE ===== */
 .menu-toggle {

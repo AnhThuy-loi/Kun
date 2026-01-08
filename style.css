@@ -30,25 +30,26 @@ body {
   .menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    left: 0;
     width: 100%;
     height: 100vh;
 
     background: #020617;
-    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 80px 24px;
-    gap: 20px;
+    justify-content: center;
+    gap: 24px;
 
-    transition: right 0.3s ease;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
     z-index: 1000;
   }
 
   .menu.show {
-    right: 0;
+    transform: translateX(0);
   }
 }
+
 
 .menu-toggle {
   z-index: 1101;
@@ -319,29 +320,38 @@ body {
 
 @media (max-width: 768px) {
   .hero {
-    height: 60vh; /* giảm chiều cao hero trên điện thoại */
-    min-height: 320px;
+    height: 50vh;
+    min-height: 300px;
   }
 
   .slide {
     background-size: contain;
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: contain; /* toàn bộ ảnh hiện ra, không bị crop */
-    background-position: center top; /* ưu tiên hiển thị phần trung tâm / trên ảnh */
+    background-position: center;
   }
 
   .hero-text {
-    padding: 0 15px; /* không để chữ chạm mép màn hình */
-    max-width: 90%;  /* chữ vừa màn hình */
-    font-size: clamp(16px, 4vw, 42px); /* chữ co theo màn hình */
+    padding: 0 16px;
+  }
+
+  .hero-text h1[data-key="welcome"] {
+    font-size: 20px;
+  }
+
+  .hero-text h1[data-key="club"] {
+    font-size: 30px;
+    letter-spacing: 2px;
+  }
+
+  .hero-text .slogan-vn {
+    font-size: 16px;
   }
 
   .hero-text button {
-    padding: 12px 40px; /* nút co vừa mobile */
-    font-size: 16px;
+    padding: 12px 32px;
+    font-size: 15px;
   }
 }
+
 
 
 /* ẢNH 1 */
@@ -357,19 +367,8 @@ body {
 }
 
 
-@media (max-width: 768px) {
-  .hero {
-    height: 45vh;
-  }
 
-  .hero-text h1[data-key="club"] {
-    font-size: 32px;
-  }
 
-  .hero-text .slogan-vn {
-    font-size: 18px;
-  }
-}
 
 @keyframes slide1 {
   0%   { opacity: 1; }

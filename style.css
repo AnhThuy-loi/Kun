@@ -26,41 +26,44 @@ body {
   cursor: pointer;
 }
 /* MENU MOBILE */
+/* Hiển thị menu dạng cột trên thiết bị di động */
 @media (max-width: 768px) {
   .menu {
     position: fixed;
     top: 0;
     right: 0;
-    width: 100%;           
+
+    width: 100%;
+    max-width: 500px;
     height: 100vh;
+
     background: #000000;
 
-    display: flex;
+    display: flex;                /* 🔥 BẮT BUỘC */
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;      /* 🔥 chữ canh trái */
     justify-content: flex-start;
 
-    padding-top: 120px;
-    gap: 24px;
+    padding: 100px 24px;
+    gap: 20px;
 
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 1000;
   }
 
-  /* Khi menu mở */
   .menu.show {
     transform: translateX(0);
   }
 
-  /* Menu link */
   .menu a {
-    color: #fff;
+    color: #ffffff;
     font-size: 18px;
-    text-decoration: none;
-    margin: 10px 0;
+    font-weight: 600;
+    width: 100%;
   }
 }
+
 //Thanh 3 
 .menu-toggle {
   display: block;

@@ -41,25 +41,27 @@ body {
 @media (max-width: 768px) {
   .menu {
     position: fixed;
-    top: 0;
+    top: 0;             /* vẫn từ top 0 */
     right: 0;
     width: 100%;
     height: 100vh;
     background: #020617;
     flex-direction: column;
-    justify-content: flex-start;  /* sửa từ center thành flex-start */
+    justify-content: flex-start; /* bắt đầu từ trên */
     align-items: center;
     gap: 24px;
     transform: translateX(100%);
     transition: transform 0.3s ease;
-    z-index: 1150;
+    z-index: 1140; /* thấp hơn header (header z-index: 1150 hoặc 1100) */
 
-    padding-top: 80px; /* đẩy nội dung menu xuống, tránh che bởi header */
+    padding-top: 80px; /* bằng chiều cao header */
   }
 
   .menu.show {
     transform: translateX(0);
   }
+}
+
 
   .menu a {
     color: #fff;

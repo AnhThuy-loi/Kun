@@ -132,20 +132,21 @@ function performSearch() {
 // Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
+const header = document.querySelector('.header');
 
 menuToggle.addEventListener('click', () => {
   menu.classList.toggle('show');
+  
+  // Ẩn header khi menu mở trên mobile
+  if(window.innerWidth <= 768) {
+    header.style.transform = menu.classList.contains('show') ? 'translateY(-100%)' : 'translateY(0)';
+  }
 });
-
-document.querySelectorAll('.menu a, .mobile-extra button').forEach(el => {
-  el.addEventListener('click', () => {
-    menu.classList.remove('show');
-  });
-});
-
-const langSwitchMobile = document.getElementById("lang-switch-mobile");
 
 // đồng bộ 2 nút VN/EN
+const langSwitchMobile = document.getElementById("lang-switch-mobile");
+
+
 langSwitchMobile.checked = langSwitch.checked;
 
 langSwitchMobile.addEventListener("change", () => {

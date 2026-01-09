@@ -72,84 +72,113 @@ body {
   gap: 20px;
 }
 
-/* ===== MENU MOBILE ===== */
-/* Nút 3 gạch: Luôn là màu đen và cố định vị trí */
+/* Nút 3 gạch màu đen */
 .menu-toggle {
   display: none;
-  font-size: 32px;
+  font-size: 30px;
   cursor: pointer;
-  color: #000000 !important; /* Đảm bảo luôn thấy màu đen */
+  color: #000 !important;
   z-index: 2100;
-  padding: 5px;
 }
 
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
+  .menu-toggle { display: block; }
 
-  /* Menu Mobile: Nền trắng, chữ đen */
   .menu-mobile {
     display: flex !important;
-    flex-direction: column; /* Sắp xếp dọc */
+    flex-direction: column;
     position: fixed;
     top: 0;
     right: -100%; 
     width: 280px;
     height: 100vh;
     background: #ffffff; /* Nền trắng */
-    z-index: 2000;
-    transition: right 0.3s ease;
-    padding: 80px 20px 20px 20px;
-    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    z-index: 2005;
+    transition: right 0.3s ease-in-out;
+    padding: 70px 20px 20px 20px;
+    overflow-y: auto;
   }
 
-  .menu-mobile.show {
-    right: 0;
-  }
+  .menu-mobile.show { right: 0; }
 
-  /* Chữ trong menu màu đen */
+  /* Link menu màu đen, xếp dọc */
   .menu-mobile a {
-    color: #000000 !important;
-    font-size: 18px;
-    font-weight: 600;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee; /* Đường kẻ nhẹ ngăn cách */
+    color: #000 !important;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
     text-decoration: none;
+    font-weight: 600;
   }
 
-  /* Cụm Đăng ký/Đăng nhập/Ngôn ngữ xếp dọc */
+  /* Cụm extra xếp dọc */
   .mobile-extra {
-    display: flex !important;
-    flex-direction: column; /* Quan trọng: Xếp dọc */
-    gap: 15px;
     margin-top: 20px;
-    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
   }
 
+  /* Fix nút VN/EN */
+  .lang-toggle-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .lang-switch {
+    position: relative;
+    display: flex !important;
+    width: 70px !important;
+    height: 34px !important;
+    background: #e5e7eb;
+    border-radius: 30px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    padding: 0;
+  }
+
+  .lang-switch .slider {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 28px !important;
+    height: 28px !important;
+    background: #fff;
+    border-radius: 50%;
+    transition: 0.3s;
+    z-index: 5;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  .lang-input:checked + .lang-switch .slider {
+    transform: translateX(36px);
+  }
+
+  .lang-switch .flag {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .lang-switch .flag img { width: 20px; height: auto; }
+
+  /* Nút đăng ký/nhập dài ra */
   .mobile-extra button {
-    width: 100%; /* Nút rộng bằng menu */
-    text-align: center;
-  }
-
-  /* Sửa nút Lang-switch trên mobile cho ngay ngắn */
-  .mobile-lang {
-    margin-bottom: 10px;
+    width: 70% !important;
+    margin: 0 !important;
   }
 }
 
-/* Lớp phủ mờ để bấm vào là tắt menu */
 .menu-overlay {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.3);
-  z-index: 1999;
+  background: rgba(0,0,0,0.4);
+  z-index: 2000;
 }
-.menu-overlay.active {
-  display: block;
-}
-
+.menu-overlay.active { display: block; }
 
 /* ===== ẨN MOBILE-EXTRA TRÊN LAPTOP/DESKTOP ===== */
 .mobile-extra {

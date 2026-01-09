@@ -73,53 +73,83 @@ body {
 }
 
 /* ===== MENU MOBILE ===== */
+/* Nút 3 gạch: Luôn là màu đen và cố định vị trí */
+.menu-toggle {
+  display: none;
+  font-size: 32px;
+  cursor: pointer;
+  color: #000000 !important; /* Đảm bảo luôn thấy màu đen */
+  z-index: 2100;
+  padding: 5px;
+}
+
 @media (max-width: 768px) {
-  /* Hiện nút 3 gạch */
   .menu-toggle {
-    display: block !important;
-    position: relative;
-    z-index: 2001; /* Nằm trên cả menu */
+    display: block;
   }
 
-  /* Định vị Menu Mobile */
+  /* Menu Mobile: Nền trắng, chữ đen */
   .menu-mobile {
-    display: flex !important; /* Luôn là flex để căn giữa các mục */
+    display: flex !important;
+    flex-direction: column; /* Sắp xếp dọc */
     position: fixed;
     top: 0;
-    right: -100%; /* Giấu menu hoàn toàn sang phải */
-    width: 280px;  /* Độ rộng menu */
+    right: -100%; 
+    width: 280px;
     height: 100vh;
-    background: #020617;
+    background: #ffffff; /* Nền trắng */
     z-index: 2000;
-    transition: right 0.3s ease; /* Hiệu ứng trượt */
-    padding-top: 100px;
+    transition: right 0.3s ease;
+    padding: 80px 20px 20px 20px;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
   }
 
-  /* Khi có class .show (do JS thêm vào) thì hiện ra */
   .menu-mobile.show {
     right: 0;
   }
 
-  /* Sửa nút ngôn ngữ mobile bị lỗi hiển thị */
+  /* Chữ trong menu màu đen */
+  .menu-mobile a {
+    color: #000000 !important;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee; /* Đường kẻ nhẹ ngăn cách */
+    text-decoration: none;
+  }
+
+  /* Cụm Đăng ký/Đăng nhập/Ngôn ngữ xếp dọc */
   .mobile-extra {
     display: flex !important;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: column; /* Quan trọng: Xếp dọc */
     gap: 15px;
-    margin-top: 30px;
+    margin-top: 20px;
+    align-items: flex-start;
   }
-  
-  .mobile-lang .lang-switch {
-    display: flex !important; /* Sửa lỗi nút gạt bị mất */
+
+  .mobile-extra button {
+    width: 100%; /* Nút rộng bằng menu */
+    text-align: center;
+  }
+
+  /* Sửa nút Lang-switch trên mobile cho ngay ngắn */
+  .mobile-lang {
+    margin-bottom: 10px;
   }
 }
-/* ===== MENU TOGGLE BUTTON ===== */
-.menu-toggle {
+
+/* Lớp phủ mờ để bấm vào là tắt menu */
+.menu-overlay {
   display: none;
-  font-size: 30px;
-  padding: 10px;
-  cursor: pointer;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 1999;
 }
+.menu-overlay.active {
+  display: block;
+}
+
 
 /* ===== ẨN MOBILE-EXTRA TRÊN LAPTOP/DESKTOP ===== */
 .mobile-extra {

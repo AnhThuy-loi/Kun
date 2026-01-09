@@ -129,22 +129,30 @@ function performSearch() {
         alert('Không có kết quả tìm kiếm!');
     }
 }
-// Mobile Menu Toggle
+// MENU MOBILE
 const menuBtn = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.menu-mobile');
+const overlay = document.querySelector('.menu-overlay');
 
-menuBtn.addEventListener('click', () => {
-  
+// Hàm đóng/mở menu
+function toggleMenu() {
   mobileMenu.classList.toggle('show');
-});
+  overlay.classList.toggle('active');
+}
 
+// Bấm vào 3 gạch
+menuBtn.addEventListener('click', toggleMenu);
 
+// Bấm vào vùng mờ (overlay) để tắt menu
+overlay.addEventListener('click', toggleMenu);
+
+// Bấm vào các link trong menu cũng tự đóng menu
 document.querySelectorAll('.menu-mobile a').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('show');
+    overlay.classList.remove('active');
   });
 });
-
 
 // Đồng bộ ngôn ngữ giữa desktop và mobile
 const langSwitchMobile = document.getElementById("lang-switch-mobile");

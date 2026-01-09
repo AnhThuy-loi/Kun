@@ -10,47 +10,42 @@
 
 <header class="header">
   <div class="logo">
-    <img src="logohome.png">
+    <img src="logohome.png" alt="Logo">
   </div>
-
-  
-
 
   <div class="header-actions">
     <div class="search-container">
-      <input class="search">
+      <input class="search" placeholder="Tìm kiếm">
       <button class="search-btn" data-key="search">Tìm kiếm</button>
     </div>
   </div>
 
   <div class="header-right">
-   <div class="lang-toggle">
-  <input type="checkbox" id="lang-switch">
-  <label for="lang-switch" class="lang-switch">
-    <span class="flag flag-vn">
-      <img src="VN.jpg" alt="VN">
-    </span>
-    <span class="flag flag-en">
-      <img src="EN.png" alt="EN">
-    </span>
-    <span class="slider"></span>
-  </label>
-</div>
-
+    <div class="lang-toggle">
+      <input type="checkbox" id="lang-switch">
+      <label for="lang-switch" class="lang-switch">
+        <span class="flag flag-vn">
+          <img src="VN.jpg" alt="VN">
+        </span>
+        <span class="flag flag-en">
+          <img src="EN.png" alt="EN">
+        </span>
+        <span class="slider"></span>
+      </label>
+    </div>
 
     <div class="auth-buttons">
       <button class="register-btn" data-key="register">Đăng Ký</button>
       <button class="login-btn" data-key="login">Đăng Nhập</button>
     </div>
   </div>
-  <div class="menu-toggle">☰</div>
 
+  <!-- Nút menu toggle, chỉ hiển thị trên mobile -->
+  <div class="menu-toggle">☰</div>
 </header>
 
-
-
-<!-- Menu -->
-<nav class="menu">
+<!-- Menu Desktop -->
+<nav class="menu-desktop">
   <a href="#" data-key="home">Trang Chủ</a>
   <a href="#" data-key="news">Tin Tức</a>
   <a href="#" data-key="roadmap">Lộ Trình</a>
@@ -58,30 +53,38 @@
   <a href="#" data-key="schedule">Lịch Học</a>
   <a href="#" data-key="recruit">Tuyển Dụng</a>
   <a href="#" data-key="contact">Liên Hệ</a>
+</nav>
 
-  <!-- MOBILE ONLY -->
-  <div class="mobile-extra">
-    <!-- LANGUAGE -->
-    <div class="lang-toggle mobile-lang">
-      <input type="checkbox" id="lang-switch-mobile">
-      <label for="lang-switch-mobile" class="lang-switch">
-        <span class="flag">
-          <img src="VN.jpg">
-        </span>
-        <span class="flag">
-          <img src="EN.png">
-        </span>
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <!-- AUTH -->
-    <button class="register-btn" data-key="register">Đăng Ký</button>
-    <button class="login-btn" data-key="login">Đăng Nhập</button>
-  </div>
+<!-- Menu Mobile -->
+<nav class="menu-mobile">
+  <a href="#" data-key="home">Trang Chủ</a>
+  <a href="#" data-key="news">Tin Tức</a>
+  <a href="#" data-key="roadmap">Lộ Trình</a>
+  <a href="#" data-key="fee">Học Phí</a>
+  <a href="#" data-key="schedule">Lịch Học</a>
+  <a href="#" data-key="recruit">Tuyển Dụng</a>
+  <a href="#" data-key="contact">Liên Hệ</a>
 </nav>
 
 
+<!-- Nút đăng ký, đăng nhập và VN/EN chỉ hiển thị trên Mobile -->
+<div class="mobile-extra">
+  <div class="lang-toggle mobile-lang">
+    <input type="checkbox" id="lang-switch-mobile">
+    <label for="lang-switch-mobile" class="lang-switch">
+      <span class="flag">
+        <img src="VN.jpg" alt="VN">
+      </span>
+      <span class="flag">
+        <img src="EN.png" alt="EN">
+      </span>
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <button class="register-btn" data-key="register">Đăng Ký</button>
+  <button class="login-btn" data-key="login">Đăng Nhập</button>
+</div>
 
 <section class="hero">
   <div class="slide slide-1"></div>
@@ -137,9 +140,9 @@
     <!-- BÊN PHẢI: HÌNH ẢNH -->
     <div class="intro-right">
       <div class="intro-image-slider">
-        <img src="s3.png" alt="Training 1">
-        <img src="s4.jpg" alt="Training 2">
-        <img src="s5.jpg" alt="Training 3">
+        <img src="ảnh/s3.png" alt="Training 1">
+        <img src="ảnh/s4.jpg" alt="Training 2">
+        <img src="ảnh/s5.jpg" alt="Training 3">
       </div>
     </div>
 

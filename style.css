@@ -164,9 +164,25 @@ body {
 
   .lang-switch .flag img { width: 20px; height: auto; }
 
-  /* Nút đăng ký/nhập dài ra */
-  .mobile-extra button {
-    width: 70px !important;
+   /* Cụm VN/EN và Button */
+  .mobile-extra {
+    display: flex !important;
+    flex-direction: column !important; 
+    gap: 15px;
+    margin-top: 20px;
+    align-items: flex-start !important;
+    width: 100%;
+  }
+  .register-btn, .login-btn {
+    /* Cho nút nhỏ lại */
+    width: 140px !important;    /* Độ rộng cố định vừa phải */
+    height: 38px !important;    /* Chiều cao gọn hơn */
+    font-size: 14px !important; /* Chữ nhỏ lại một chút cho thanh thoát */
+    padding: 0 !important;      /* Bỏ padding thừa */
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px !important; /* Bo góc nhẹ */
     margin: 0 !important;
   }
 }

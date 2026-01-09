@@ -55,8 +55,7 @@
   <a href="#" data-key="contact">Liên Hệ</a>
 </nav>
 
-<!-- Menu Mobile -->
-<nav class="menu-mobile">
+<nav class="menu">
   <a href="#" data-key="home">Trang Chủ</a>
   <a href="#" data-key="news">Tin Tức</a>
   <a href="#" data-key="roadmap">Lộ Trình</a>
@@ -64,27 +63,29 @@
   <a href="#" data-key="schedule">Lịch Học</a>
   <a href="#" data-key="recruit">Tuyển Dụng</a>
   <a href="#" data-key="contact">Liên Hệ</a>
+
+  <!-- Nút đăng ký, đăng nhập và VN/EN chỉ hiển thị trên Mobile -->
+  <div class="mobile-extra">
+    <!-- LANGUAGE -->
+    <div class="lang-toggle mobile-lang">
+      <input type="checkbox" id="lang-switch-mobile">
+      <label for="lang-switch-mobile" class="lang-switch">
+        <span class="flag">
+          <img src="ảnh/VN.jpg" alt="VN">
+        </span>
+        <span class="flag">
+          <img src="ảnh/EN.png" alt="EN">
+        </span>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- AUTH BUTTONS -->
+    <button class="register-btn" data-key="register">Đăng Ký</button>
+    <button class="login-btn" data-key="login">Đăng Nhập</button>
+  </div>
 </nav>
 
-
-<!-- Nút đăng ký, đăng nhập và VN/EN chỉ hiển thị trên Mobile -->
-<div class="mobile-extra">
-  <div class="lang-toggle mobile-lang">
-    <input type="checkbox" id="lang-switch-mobile">
-    <label for="lang-switch-mobile" class="lang-switch">
-      <span class="flag">
-        <img src="VN.jpg" alt="VN">
-      </span>
-      <span class="flag">
-        <img src="EN.png" alt="EN">
-      </span>
-      <span class="slider"></span>
-    </label>
-  </div>
-
-  <button class="register-btn" data-key="register">Đăng Ký</button>
-  <button class="login-btn" data-key="login">Đăng Nhập</button>
-</div>
 
 <section class="hero">
   <div class="slide slide-1"></div>

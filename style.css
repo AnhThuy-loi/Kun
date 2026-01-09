@@ -166,7 +166,7 @@ body {
 
   /* Nút đăng ký/nhập dài ra */
   .mobile-extra button {
-    width: 70% !important;
+    width: 70px !important;
     margin: 0 !important;
   }
 }

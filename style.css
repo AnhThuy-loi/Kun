@@ -171,7 +171,6 @@ body {
     gap: 15px;
     margin-top: 20px;
     align-items: flex-start !important;
-    width: 100%;
   }
   .register-btn, .login-btn {
     /* Cho nút nhỏ lại */

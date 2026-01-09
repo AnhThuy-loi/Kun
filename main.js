@@ -129,40 +129,32 @@ function performSearch() {
         alert('Không có kết quả tìm kiếm!');
     }
 }
-// MENU MOBILE
-const menuBtn = document.querySelector('.menu-toggle');
-const mobileMenu = document.querySelector('.menu-mobile');
-const overlay = document.querySelector('.menu-overlay');
+// Menu mobile
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileNav = document.querySelector('.menu-mobile');
+const overlayBg = document.querySelector('.menu-overlay');
 
-// Hàm đóng/mở menu
-function toggleMenu() {
-  mobileMenu.classList.toggle('show');
-  overlay.classList.toggle('active');
-}
-
-// Bấm vào 3 gạch
-menuBtn.addEventListener('click', toggleMenu);
-
-// Bấm vào vùng mờ (overlay) để tắt menu
-overlay.addEventListener('click', toggleMenu);
-
-// Bấm vào các link trong menu cũng tự đóng menu
-document.querySelectorAll('.menu-mobile a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu.classList.remove('show');
-    overlay.classList.remove('active');
-  });
+// Mở/Đóng menu
+menuToggle.addEventListener('click', () => {
+  mobileNav.classList.toggle('show');
+  overlayBg.classList.toggle('active');
 });
-// Đồng bộ ngôn ngữ giữa desktop và mobile
-const langDesktop = document.getElementById("lang-switch");
-const langMobile = document.getElementById("lang-switch-mobile");
 
-function syncLanguage(e) {
-    const isChecked = e.target.checked;
-    langDesktop.checked = isChecked;
-    langMobile.checked = isChecked;
-    setLanguage(isChecked ? "en" : "vn");
-}
+// Đóng menu khi bấm ra ngoài
+overlayBg.addEventListener('click', () => {
+  mobileNav.classList.remove('show');
+  overlayBg.classList.remove('active');
+});
+
+// Đồng bộ nút Ngôn ngữ mobile với chức năng chính
+const mobileLangBtn = document.getElementById('lang-switch-mobile');
+const desktopLangBtn = document.getElementById('lang-switch'); // Cái này ở header laptop
+
+mobileLangBtn.addEventListener('change', () => {
+  const isEn = mobileLangBtn.checked;
+  if(desktopLangBtn) desktopLangBtn.checked = isEn; // Đồng bộ nút laptop
+  setLanguage(isEn ? 'en' : 'vn');
+});
 
 langDesktop.addEventListener("change", syncLanguage);
 langMobile.addEventListener("change", syncLanguage);

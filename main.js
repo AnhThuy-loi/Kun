@@ -129,14 +129,20 @@ function performSearch() {
         alert('Không có kết quả tìm kiếm!');
     }
 }
-// JS đơn giản toggle menu mobile
-const menuToggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu');
+const menuBtn = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('.menu-mobile');
 
-menuToggle.addEventListener('click', () => {
-  menu.classList.toggle('show');
+menuBtn.addEventListener('click', () => {
+  // Bấm vào 3 gạch thì thêm/xóa class .show
+  mobileMenu.classList.toggle('show');
 });
 
+// (Tùy chọn) Bấm vào link bất kỳ trong menu thì tự đóng menu lại
+document.querySelectorAll('.menu-mobile a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('show');
+  });
+});
 
 // đồng bộ 2 nút VN/EN
 const langSwitchMobile = document.getElementById("lang-switch-mobile");

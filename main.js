@@ -129,24 +129,25 @@ function performSearch() {
         alert('Không có kết quả tìm kiếm!');
     }
 }
+// Mobile Menu Toggle
 const menuBtn = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.menu-mobile');
 
 menuBtn.addEventListener('click', () => {
-  // Bấm vào 3 gạch thì thêm/xóa class .show
+  
   mobileMenu.classList.toggle('show');
 });
 
-// (Tùy chọn) Bấm vào link bất kỳ trong menu thì tự đóng menu lại
+
 document.querySelectorAll('.menu-mobile a').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('show');
   });
 });
 
-// đồng bộ 2 nút VN/EN
-const langSwitchMobile = document.getElementById("lang-switch-mobile");
 
+// Đồng bộ ngôn ngữ giữa desktop và mobile
+const langSwitchMobile = document.getElementById("lang-switch-mobile");
 
 langSwitchMobile.checked = langSwitch.checked;
 
@@ -165,4 +166,3 @@ document.querySelectorAll('.menu a, .mobile-extra button').forEach(el => {
     menu.classList.remove('show');
   });
 });
-

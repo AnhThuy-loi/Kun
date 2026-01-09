@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="menu-overlay"></div>
+
 <header class="header">
   <div class="logo">
     <img src="logohome.png" alt="Logo">
@@ -65,19 +65,22 @@
   <a href="#" data-key="contact">Liên Hệ</a>
 
   <div class="mobile-extra">
-    <div class="lang-toggle mobile-lang">
-      <input type="checkbox" id="lang-switch-mobile">
-      <label for="lang-switch-mobile" class="lang-switch">
-        <span class="flag"><img src="VN.jpg" alt="VN"></span>
-        <span class="flag"><img src="EN.png" alt="EN"></span>
-        <span class="slider"></span>
-      </label>
+    <div class="lang-toggle-container">
+       <span style="color: #000; font-weight: 600; font-size: 14px; margin-bottom: 5px;">Ngôn ngữ:</span>
+       <input type="checkbox" id="lang-switch-mobile" class="lang-input">
+       <label for="lang-switch-mobile" class="lang-switch">
+         <span class="flag"><img src="VN.jpg" alt="VN"></span>
+         <span class="flag"><img src="EN.png" alt="EN"></span>
+         <span class="slider"></span>
+       </label>
     </div>
-    <button class="register-btn">Đăng Ký</button>
-    <button class="login-btn">Đăng Nhập</button>
+
+    <button class="register-btn" data-key="register">Đăng Ký</button>
+    <button class="login-btn" data-key="login">Đăng Nhập</button>
   </div>
 </nav>
 
+<div class="menu-overlay"></div>
 
 <section class="hero">
   <div class="slide slide-1"></div>

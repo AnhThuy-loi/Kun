@@ -43,20 +43,22 @@ body {
     position: fixed;
     top: 0;
     right: 0;
-    width: 100%;       /* full màn hình */
+    width: 100%;
     height: 100vh;
     background: #020617;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;  /* sửa từ center thành flex-start */
     align-items: center;
     gap: 24px;
-    transform: translateX(100%); /* ẩn hoàn toàn bên phải */
+    transform: translateX(100%);
     transition: transform 0.3s ease;
-    z-index: 1050;
+    z-index: 1150;
+
+    padding-top: 80px; /* đẩy nội dung menu xuống, tránh che bởi header */
   }
 
   .menu.show {
-    transform: translateX(0); /* mở menu full */
+    transform: translateX(0);
   }
 
   .menu a {
@@ -76,8 +78,6 @@ body {
     align-items: center;
   }
 }
-
-
 
 /* ===== MENU TOGGLE ===== */
 .menu-toggle {

@@ -38,6 +38,9 @@ body {
   cursor: pointer;
 }
 /* MOBILE MENU */
+.menu.show ~ .header {
+  transform: translateY(-100%);}
+
 @media (max-width: 768px) {
   .menu {
     position: fixed;

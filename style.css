@@ -25,30 +25,46 @@ body {
   font-size: 32px;
   cursor: pointer;
 }
-/* Hiển thị menu dạng cột trên thiết bị di động */
+/* MOBILE MENU */
 @media (max-width: 768px) {
   .menu {
     position: fixed;
     top: 0;
-    left: 0;
-    width: 70%;
-    height: 320vh;
-
+    right: 0;
+    width: 100%;       /* full màn hình */
+    height: 100vh;
     background: #020617;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     gap: 24px;
-
-    transform: translateX(100%);
+    transform: translateX(100%); /* ẩn hoàn toàn bên phải */
     transition: transform 0.3s ease;
     z-index: 1000;
   }
 
   .menu.show {
-    transform: translateX(0);
+    transform: translateX(0); /* mở menu full */
+  }
+
+  .menu a {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .mobile-extra {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 30px;
+    align-items: center;
   }
 }
+
 
 
 /* ===== MENU TOGGLE ===== */

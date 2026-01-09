@@ -360,7 +360,36 @@ body {
   padding: 4px;
   box-sizing: border-box;
 }
+@media (max-width: 768px) {
+  /* Đảm bảo khung bao quanh nút ngôn ngữ hiện rõ */
+  .mobile-lang .lang-switch {
+    display: flex !important;
+    background: #f1f1f1 !important; /* Màu nền xám nhạt để nổi trên menu trắng */
+    border: 1px solid #ddd;
+    width: 70px;  /* Giữ nguyên chiều rộng */
+    height: 36px; /* Giữ nguyên chiều cao */
+    margin-left: 0; /* Căn lề trái */
+  }
 
+  /* Sửa lỗi chữ/hình bên trong nút gạt bị lệch */
+  .mobile-lang .flag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .mobile-lang .flag img {
+    width: 20px;
+    height: auto;
+    display: block;
+  }
+
+  /* Đảm bảo cái nút tròn (slider) nằm đúng vị trí */
+  .mobile-lang .slider {
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+}
 /* Thanh trượt */
 .slider {
   position: absolute;

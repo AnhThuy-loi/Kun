@@ -153,21 +153,19 @@ document.querySelectorAll('.menu-mobile a').forEach(link => {
     overlay.classList.remove('active');
   });
 });
-
 // Đồng bộ ngôn ngữ giữa desktop và mobile
-const langSwitchMobile = document.getElementById("lang-switch-mobile");
+const langDesktop = document.getElementById("lang-switch");
+const langMobile = document.getElementById("lang-switch-mobile");
 
-langSwitchMobile.checked = langSwitch.checked;
+function syncLanguage(e) {
+    const isChecked = e.target.checked;
+    langDesktop.checked = isChecked;
+    langMobile.checked = isChecked;
+    setLanguage(isChecked ? "en" : "vn");
+}
 
-langSwitchMobile.addEventListener("change", () => {
-  const lang = langSwitchMobile.checked ? "en" : "vn";
-  setLanguage(lang);
-  langSwitch.checked = langSwitchMobile.checked;
-});
-
-langSwitch.addEventListener("change", () => {
-  langSwitchMobile.checked = langSwitch.checked;
-});
+langDesktop.addEventListener("change", syncLanguage);
+langMobile.addEventListener("change", syncLanguage);
 // Đóng menu khi chọn mục
 document.querySelectorAll('.menu a, .mobile-extra button').forEach(el => {
   el.addEventListener('click', () => {

@@ -175,7 +175,7 @@ body {
   }
   .register-btn, .login-btn {
     /* Cho nút nhỏ lại */
-    width: 140px !important;    /* Độ rộng cố định vừa phải */
+    width: 70px !important;    /* Độ rộng cố định vừa phải */
     height: 38px !important;    /* Chiều cao gọn hơn */
     font-size: 14px !important; /* Chữ nhỏ lại một chút cho thanh thoát */
     padding: 0 !important;      /* Bỏ padding thừa */

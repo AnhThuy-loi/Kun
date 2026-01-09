@@ -128,10 +128,10 @@ body {
   .lang-switch {
     position: relative;
     display: flex !important;
-    width: 70px !important;
-    height: 34px !important;
+    width: 50px !important;
+    height: 40px !important;
     background: #e5e7eb;
-    border-radius: 30px;
+    border-radius: 40px;
     cursor: pointer;
     border: 1px solid #ccc;
     padding: 0;

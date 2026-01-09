@@ -199,14 +199,6 @@ body {
     display: flex;
   }
 
-  .menu-mobile a {
-    color: #ffffff; /* Sửa lại màu trắng vì nền menu mobile là màu tối */
-    font-size: 18px;
-    font-weight: 600;
-    padding: 10px 20px;
-    transition: background 0.3s ease;
-  }
-
   /* CHỈ HIỂN THỊ CỤM NÀY KHI Ở MOBILE */
   .mobile-extra {
     display: flex;
@@ -366,91 +358,117 @@ body {
    background-color: #1976D2;
 }
 
-/* ===== LANGUAGE SWITCH ===== */
-.lang-toggle {
-  display: flex;
-  align-items: center;
+
+/* --- 1. Fix Nút 3 Gạch --- */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #000 !important; 
+  z-index: 2100;
 }
 
-/* Ẩn checkbox gốc */
-#lang-switch {
-  display: none;
+/* --- 2. Fix Menu Mobile (Nền trắng, Chữ đen, Xếp dọc) --- */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+
+  .menu-mobile {
+    display: flex !important;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%; 
+    width: 280px;
+    height: 100vh;
+    background: #ffffff !important; 
+    z-index: 2005;
+    transition: right 0.3s ease-in-out;
+    padding: 80px 20px 20px 20px;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+  }
+
+  .menu-mobile.show { right: 0; }
+
+  .menu-mobile a {
+    color: #000 !important;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+  }
+
+  /* Cụm VN/EN và Button */
+  .mobile-extra {
+    display: flex !important;
+    flex-direction: column !important; 
+    gap: 15px;
+    margin-top: 20px;
+    align-items: flex-start !important;
+    width: 100%;
+  }
+
+  .mobile-extra button {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* --- 3. Fix Nút VN/EN (Bỏ checkbox mặc định của điện thoại) --- */
+#lang-switch, #lang-switch-mobile {
+  display: none !important; /* Ẩn checkbox hoàn toàn */
 }
 
 .lang-switch {
   position: relative;
-  width: 70px;
-  height: 36px;
+  display: flex !important;
+  width: 70px !important;
+  height: 34px !important;
   background: #e5e7eb;
   border-radius: 30px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  padding: 4px;
-  box-sizing: border-box;
+  border: 1px solid #ccc;
+  padding: 0 !important;
 }
-@media (max-width: 768px) {
-  /* Đảm bảo khung bao quanh nút ngôn ngữ hiện rõ */
-  .mobile-lang .lang-switch {
-    display: flex !important;
-    background: #f1f1f1 !important; /* Màu nền xám nhạt để nổi trên menu trắng */
-    border: 1px solid #ddd;
-    width: 70px;  /* Giữ nguyên chiều rộng */
-    height: 36px; /* Giữ nguyên chiều cao */
-    margin-left: 0; /* Căn lề trái */
-  }
 
-  /* Sửa lỗi chữ/hình bên trong nút gạt bị lệch */
-  .mobile-lang .flag {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .mobile-lang .flag img {
-    width: 20px;
-    height: auto;
-    display: block;
-  }
-
-  /* Đảm bảo cái nút tròn (slider) nằm đúng vị trí */
-  .mobile-lang .slider {
-    background: #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  }
-}
-/* Thanh trượt */
-.slider {
+.lang-switch .slider {
   position: absolute;
-  width: 28px;
-  height: 28px;
-  background: #ffffff;
+  top: 2px;
+  left: 2px;
+  width: 28px !important;
+  height: 28px !important;
+  background: #fff;
   border-radius: 50%;
-  left: 4px;
-  transition: 0.3s ease;
-  z-index: 3;
+  transition: 0.3s;
+  z-index: 5;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* Cờ */
-.flag {
-  width: 50%;
-  text-align: center;
-  z-index: 2;
+/* Gạt nút khi check */
+#lang-switch:checked + .lang-switch .slider,
+#lang-switch-mobile:checked + .lang-switch .slider {
+  transform: translateX(36px);
 }
 
-.flag img {
-  width: 20px;
-  height: auto;
+.lang-switch .flag {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Khi bật EN */
-#lang-switch:checked + .lang-switch .slider {
-  transform: translateX(34px);
-}
+.lang-switch .flag img { width: 20px; height: auto; }
 
-#lang-switch:checked + .lang-switch {
-  background: #e5e7eb;
+/* Lớp phủ đen khi mở menu */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 2000;
 }
+.menu-overlay.active { display: block; }
+
 /* ===== HERO SECTION ===== */
 .hero {
   position: relative;

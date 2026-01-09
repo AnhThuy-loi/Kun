@@ -129,19 +129,14 @@ function performSearch() {
         alert('Không có kết quả tìm kiếm!');
     }
 }
-// Mobile menu toggle
+// JS đơn giản toggle menu mobile
 const menuToggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu');
-const header = document.querySelector('.header');
 
 menuToggle.addEventListener('click', () => {
   menu.classList.toggle('show');
-  
-  // Ẩn header khi menu mở trên mobile
-  if(window.innerWidth <= 768) {
-    header.style.transform = menu.classList.contains('show') ? 'translateY(-100%)' : 'translateY(0)';
-  }
 });
+
 
 // đồng bộ 2 nút VN/EN
 const langSwitchMobile = document.getElementById("lang-switch-mobile");

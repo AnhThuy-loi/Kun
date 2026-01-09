@@ -18,7 +18,19 @@ body {
   align-items: center;
   padding: 20px 50px;
   background: #ffffff;
+  position: fixed;  /* dính trên cùng */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1100;    /* luôn trên các phần khác */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* optional: thêm bóng nhẹ */
 }
+
+/* Đẩy nội dung trang xuống để không bị che header */
+body {
+  padding-top: 100px; /* bằng chiều cao header, tùy chỉnh nếu header cao hơn */
+}
+
 /* ===== RESPONSIVE MENU ===== */
 .menu-toggle {
   display: none;
@@ -40,7 +52,7 @@ body {
     gap: 24px;
     transform: translateX(100%); /* ẩn hoàn toàn bên phải */
     transition: transform 0.3s ease;
-    z-index: 1000;
+    z-index: 1050;
   }
 
   .menu.show {
@@ -69,35 +81,28 @@ body {
 
 /* ===== MENU TOGGLE ===== */
 .menu-toggle {
-  font-size: 32px;
-  cursor: pointer;
-  color: #000;
-  background: none;
-  border: none;
-
-  display: none; /* ẩn desktop */
-  z-index: 1101;
+  display: none;
 }
 
+/* Mobile */
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
-    position: fixed;
+    position: fixed; /* dính khi cuộn */
     top: 20px;
     right: 20px;
     font-size: 32px;
-    z-index: 1101;
+    z-index: 1200;   /* trên header */
     color: #000;
     cursor: pointer;
   }
+
+  .menu-toggle.active {
+    color: #fff;
+  }
 }
 
-.menu-toggle.active {
-  color: #fff;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
+
 
 
 

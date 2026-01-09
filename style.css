@@ -9,140 +9,41 @@
 body {
   background: #ffffff;
   color: #000000;
+  transition: padding-top 0.3s ease;
+  padding-top: 80px; /* Đẩy nội dung xuống để tránh bị che bởi header */
 }
 
-/* ===== HEADER ===== */
+/* ===== HEADER chung ===== */
 .header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
   background: #ffffff;
-  position: fixed;  /* dính trên cùng */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 1100;    /* luôn trên các phần khác */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* optional: thêm bóng nhẹ */
+  z-index: 1100; /* Đảm bảo header có z-index cao để không bị che khuất */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Đẩy nội dung trang xuống để không bị che header */
-body {
-  padding-top: 100px; /* bằng chiều cao header, tùy chỉnh nếu header cao hơn */
-}
-
-/* ===== RESPONSIVE MENU ===== */
-.menu-toggle {
-  display: none;
-  font-size: 32px;
-  cursor: pointer;
-}
-/* MOBILE MENU */
-.menu.show ~ .header {
-  transform: translateY(-100%);}
-
-@media (max-width: 768px) {
-  .menu {
-    position: fixed;
-    top: 80px;             /* đẩy menu xuống ngay dưới header */
-    right: 0;
-    width: 100%;
-    height: calc(100vh - 80px); /* full màn hình trừ header */
-    background: #020617;
-    flex-direction: column;
-    justify-content: flex-start; 
-    align-items: center;
-    gap: 24px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 1200; /* cao hơn header, để menu mở lên trên */
-    overflow-y: auto; /* nếu menu dài thì cuộn được */
-    padding-top: 0; /* không cần padding nữa */
-  }
-
-  .menu.show {
-    transform: translateX(0);
-  }
-
-  .menu a {
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    width: 100%;
-    padding: 12px 0;
-  }
-
-  .mobile-extra {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 30px;
-    align-items: center;
-  }
-}
-
-/* ===== MENU TOGGLE ===== */
-.menu-toggle {
-  display: none;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-    position: fixed; /* dính khi cuộn */
-    top: 20px;
-    right: 20px;
-    font-size: 32px;
-    z-index: 1200;   /* trên header */
-    color: #000;
-    cursor: pointer;
-  }
-
-  .menu-toggle.active {
-    color: #fff;
-  }
-}
-
-
-
-
-
-/* ===== MOBILE AUTH BUTTONS ===== */
-.mobile-auth {
-  display: none;
-  flex-direction: column;
-  gap: 12px;
-  padding: 20px;
-}
-
-@media (max-width: 768px) {
-  .mobile-auth {
-    display: flex;
-  }
-
-  .header-right {
-    display: none;
-  }
-}
-.mobile-extra {
-  display: none;
-}
-
-/* ===== MENU ===== */
-.menu {
+/* ===== MENU DESKTOP ===== */
+.menu-desktop {
   display: flex;
   justify-content: center;
-  gap: clamp(24px, 8vw, 100px); /* Thêm khoảng cách hợp lý giữa các mục */
-  padding: 10px 0;
-  background-color: #020617;
+  gap: 100px; 
+  padding: 15px 0;
+  background-color: #000000;
   flex-wrap: wrap;
+  position: fixed;
+  top: 150px;         /* Đặt ngay dưới Header  */
+  left: 0;
+  width: 100%;
+  z-index: 1200; /* Đảm bảo menu có z-index cao để không bị che khuất */
 }
 
-
-
-.menu a {
+.menu-desktop a {
   color: #ffffff;
   text-decoration: none;
   font-weight: 500;
@@ -151,11 +52,11 @@ body {
   margin: 0 15px; /* Giảm khoảng cách giữa các mục menu */
 }
 
-.menu a:hover {
+.menu-desktop a:hover {
   color: #ff2d95;
 }
 
-.menu .login {
+.menu-desktop .login {
   color: #ffffff;
 }
 
@@ -164,41 +65,77 @@ body {
   display: flex;
   justify-content: center;
 }
+
 .header-right {
   display: flex;
   align-items: center;
   gap: 20px;
 }
 
+/* ===== MENU MOBILE ===== */
+.menu-mobile {
+  display: none; /* Ẩn mặc định */
+  position: fixed;
+  top: 80px; /* Điều chỉnh khoảng cách nếu cần */
+  right: 0;
+  width: 75%;
+  height: calc(100vh - 80px); /* Chiều cao menu bằng toàn bộ màn hình trừ chiều cao header */
+  background: #020617;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-top: 20px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1200;
+}
+
+.menu-mobile.show {
+  transform: translateX(0);
+}
+
+.menu-mobile a {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* ===== MENU TOGGLE BUTTON ===== */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+/* ===== ẨN MOBILE-EXTRA TRÊN LAPTOP/DESKTOP ===== */
+.mobile-extra {
+  display: none; 
+}
+
+/* ===== MOBILE & TABLET (Max-width: 768px) ===== */
 @media (max-width: 768px) {
-  .menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 75%;
-    height: 100vh;
-    background: #ffffff;
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 22px;
-
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 1000;
+  .menu-desktop {
+    display: none; 
+  }
+  
+  .menu-toggle {
+    display: block; 
   }
 
-  .menu.show {
-    transform: translateX(0);
+  .menu-mobile {
+    display: flex;
   }
 
-  .menu a {
-    color: #000;
+  .menu-mobile a {
+    color: #ffffff; /* Sửa lại màu trắng vì nền menu mobile là màu tối */
     font-size: 18px;
     font-weight: 600;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
   }
 
+  /* CHỈ HIỂN THỊ CỤM NÀY KHI Ở MOBILE */
   .mobile-extra {
     display: flex;
     flex-direction: column;
@@ -206,23 +143,61 @@ body {
     margin-top: 30px;
     align-items: center;
   }
+}
 
-  .mobile-lang {
-    margin-bottom: 10px;
+/* ===== DESKTOP MENU: HIỂN THỊ LẠI MENU KHI MÀN HÌNH LỚN ===== */
+@media (min-width: 769px) {
+  .menu-desktop {
+    display: flex; /* Hiển thị menu trên các màn hình lớn */
+  }
+
+  .menu-mobile {
+    display: none; /* Ẩn menu mobile khi ở chế độ desktop */
   }
 }
+
 
 /* ===== SEARCH CONTAINER ===== */
 .search-container {
   display: flex;
   align-items: center;
-  border: 2px solid #ff3d9e;  /* Màu viền thay đổi để đồng bộ với màu nút tìm kiếm */
-  border-radius: 30px;  /* Bo tròn viền thanh tìm kiếm */
+  border: 2px solid #ff3d9e;  /* Màu viền thanh tìm kiếm */
+  border-radius: 30px;  /* Bo tròn viền */
   overflow: hidden;
   width: clamp(220px, 40vw, 600px);
-  transition: border-color 0.3s ease; /* Thêm hiệu ứng khi focus */
-  height: 40px;  /* Điều chỉnh chiều cao của container */
+  transition: border-color 0.3s ease; /* Hiệu ứng khi focus */
+  height: 40px;  /* Điều chỉnh chiều cao thanh tìm kiếm */
 }
+
+/* Tạo hiệu ứng focus cho thanh tìm kiếm */
+.search-container:focus-within {
+  border-color: #ff2d95;  /* Chuyển màu viền khi focus vào ô tìm kiếm */
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  width: 100%; /* Chiếm hết không gian của container */
+}
+
+/* Hiệu ứng khi hover vào nút tìm kiếm */
+.search-btn {
+  background: #ff2d95;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+  background-color: #d0247d; /* Màu sáng hơn khi hover */
+}
+
 
 /* ===== SEARCH INPUT ===== */
 .search {

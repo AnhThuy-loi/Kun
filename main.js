@@ -6,9 +6,6 @@ const translations = {
     register: "Đăng Ký",
     login: "Đăng Nhập",
 
-    welcome: "Chào mừng đến với",
-    club: "Dream T Basketball Club",
-    slogan:  "“NGHĨ LỚN - CHƠI LỚN”",
     join: "Tham gia CLB",
 
     home: "Trang Chủ",
@@ -43,9 +40,6 @@ const translations = {
     register: "Sign Up",
     login: "Sign In",
 
-    welcome: "Welcome to",
-    club: "Dream T Basketball Club",
-    slogan: "\"THINK BIG – PLAY BIG\"",
     join: "Join the Club",
 
     home: "Home",

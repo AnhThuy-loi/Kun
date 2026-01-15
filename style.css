@@ -505,7 +505,7 @@ body {
 
 @media (max-width: 768px) {
   body {
-    padding-top: 80px; /* Mobile chỉ có Header, không có Menu Desktop */
+    padding-top: 30px; /* Mobile chỉ có Header, không có Menu Desktop */
   }
 
   .hero {

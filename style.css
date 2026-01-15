@@ -504,29 +504,27 @@ body {
 }
 
 @media (max-width: 768px) {
-body {
-    padding-top: 80px !important; /* Khớp với chiều cao header mobile */
-  }
-
-  /* KHUNG HERO: Ép về tỉ lệ ngang chuẩn để ảnh không bị cao lêu nghêu */
+  /* Ép khung Hero cao hơn một chút trên Mobile */
   .hero {
-    height: auto !important;
-    aspect-ratio: 1; /* Tỉ lệ vàng cho ảnh slide mobile */
-    min-height: 250px;
+    height: 50vh !important; /* Chiếm 50% chiều cao màn hình điện thoại */
+    min-height: 300px;
+    background: #000;
   }
 
   .slide {
-    /* Ép ảnh co lại vừa khít chiều rộng màn hình */
-    background-size: contain !important; 
-    background-position: center top;
-    background-color: #000; /* Nền đen để bù vào nếu ảnh không đủ tỉ lệ */
+    /* Ép ảnh lấp đầy 100% khung hình bất chấp tỉ lệ ảnh gốc */
+    background-size: cover !important; 
+    background-position: center center;
+    width: 100%;
+    height: 100%;
   }
-  .hero-text button {
-    padding: 12px 32px;
-    font-size: 15px;
+
+  /* Đảm bảo text và nút không bị văng ra ngoài */
+  .hero-text {
+    padding: 20px;
+    justify-content: center;
   }
 }
-
 
 /* ẢNH 1 */
 .slide-1 {

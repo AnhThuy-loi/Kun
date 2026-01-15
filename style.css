@@ -504,27 +504,22 @@ body {
 }
 
 @media (max-width: 768px) {
-  body {
-    padding-top: 30px; /* Mobile chỉ có Header, không có Menu Desktop */
-  }
-
+  /* 1. Thu nhỏ chiều cao khu vực slide lại để ảnh không bị kéo giãn */
   .hero {
-    height: 60vh; /* Giảm chiều cao một chút trên mobile */
+    height: 35vh; /* Chỉ chiếm 35% chiều cao màn hình thay vì 60-70% */
+    min-height: 250px; 
   }
 
   .slide {
-    /* Quan trọng: ưu tiên nhìn thấy phần trên của ảnh nếu ảnh bị cắt */
-    background-position: top center; 
+    /* 2. Ép ảnh co lại theo chiều rộng của điện thoại (100% width) */
+    background-size: 100% auto; 
+    background-position: center top; /* Đưa ảnh lên sát phía trên */
   }
 
   .hero-text {
-    /* Đẩy chữ xuống thấp một chút để tránh che mặt nhân vật trong ảnh */
+    /* 3. Đưa chữ xuống dưới ảnh để không bị đè lên mặt nhân vật */
     justify-content: flex-end;
-    padding-bottom: 50px;
-  }
-
-  .hero-text h1[data-key="club"] {
-    font-size: 28px; /* Giảm size chữ để không tràn màn hình */
+    padding-bottom: 20px;
   }
 }
 

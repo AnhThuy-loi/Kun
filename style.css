@@ -511,7 +511,7 @@ body {
   /* KHUNG HERO: Ép về tỉ lệ ngang chuẩn để ảnh không bị cao lêu nghêu */
   .hero {
     height: auto !important;
-    aspect-ratio: 10; /* Tỉ lệ vàng cho ảnh slide mobile */
+    aspect-ratio: 1; /* Tỉ lệ vàng cho ảnh slide mobile */
     min-height: 250px;
   }
 
@@ -526,7 +526,6 @@ body {
     font-size: 15px;
   }
 }
-
 
 
 /* ẢNH 1 */
@@ -587,8 +586,6 @@ body {
 }
 
 
-
-
 /* NÚT THAM GIA */
 .hero-text button {
   padding: 16px 56px;
@@ -636,8 +633,6 @@ body {
     height: 60px;
   }
 }
-
-
 
 /* ===== SECTIONS ===== */
 .features, .roadmap, .news {

@@ -10,7 +10,7 @@ body {
   background: #ffffff;
   color: #000000;
   transition: padding-top 0.3s ease;
-  padding-top: 80px; /* Đẩy nội dung xuống để tránh bị che bởi header */
+  padding-top: 198px; /* Đẩy nội dung xuống để tránh bị che bởi header */
 }
 
 /* ===== HEADER chung ===== */
@@ -504,36 +504,27 @@ body {
 }
 
 @media (max-width: 768px) {
+  body {
+    padding-top: 80px; /* Mobile chỉ có Header, không có Menu Desktop */
+  }
+
   .hero {
-    height: 50vh;
-    min-height: 300px;
+    height: 60vh; /* Giảm chiều cao một chút trên mobile */
   }
 
   .slide {
-    background-size: contain;
-    background-position: center;
+    /* Quan trọng: ưu tiên nhìn thấy phần trên của ảnh nếu ảnh bị cắt */
+    background-position: top center; 
   }
 
   .hero-text {
-    padding: 0 16px;
-  }
-
-  .hero-text h1[data-key="welcome"] {
-    font-size: 20px;
+    /* Đẩy chữ xuống thấp một chút để tránh che mặt nhân vật trong ảnh */
+    justify-content: flex-end;
+    padding-bottom: 50px;
   }
 
   .hero-text h1[data-key="club"] {
-    font-size: 30px;
-    letter-spacing: 2px;
-  }
-
-  .hero-text .slogan-vn {
-    font-size: 16px;
-  }
-
-  .hero-text button {
-    padding: 12px 32px;
-    font-size: 15px;
+    font-size: 28px; /* Giảm size chữ để không tràn màn hình */
   }
 }
 

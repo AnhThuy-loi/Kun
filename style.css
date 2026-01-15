@@ -205,7 +205,7 @@ body {
   .menu-desktop {
     display: none; 
   }
-  
+
   .menu-toggle {
     display: block; 
   }
@@ -504,49 +504,10 @@ body {
 }
 
 @media (max-width: 768px) {
-  /* Giảm chiều cao body vì mobile header nhỏ hơn */
-  body {
-    padding-top: 80px; 
-  }
-
-  /* 1. Quan trọng: Hạ thấp chiều cao khung Hero xuống 
-     để phù hợp với tỉ lệ ảnh ngang, tránh làm ảnh bị phóng to */
-  .hero {
-    height: auto;
-    aspect-ratio: 16 / 9; /* Ép khung theo tỉ lệ ảnh chuẩn */
-    min-height: 250px;
-  }
-
-  .slide {
-    /* 2. Ép ảnh thu nhỏ lại vừa khít chiều rộng màn hình */
-    background-size: contain; 
-    background-position: center top;
-    background-color: #000; /* Nền đen nếu ảnh không phủ hết */
-  }
-
-  /* 3. Chỉnh lại phần chữ để không đè lên hình */
-  .hero-text {
-    justify-content: flex-end;
-    padding-bottom: 20px;
-  }
-
-  .hero-text h1[data-key="welcome"] {
-    font-size: 16px;
-  }
-
-  .hero-text h1[data-key="club"] {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  .hero-text .slogan-vn {
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
 
   .hero-text button {
-    padding: 10px 25px;
-    font-size: 14px;
+    padding: 12px 32px;
+    font-size: 15px;
   }
 }
 
@@ -560,7 +521,7 @@ body {
 
 /* ẢNH 2 */
 .slide-2 {
-  background-image: url("s2.jpg");
+  background-image: url("");
   animation: slide2 15s infinite;
 }
 
